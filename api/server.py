@@ -2,8 +2,6 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-import urllib
-
 from Repository.RepositoryMock import RepositoryMock
 from Services.UrlShortenerService import UrlShortenerService
 from Data.URLRequest import URLRequest
