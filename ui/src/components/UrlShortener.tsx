@@ -26,7 +26,7 @@ function URLShortener() {
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		let inputValue = e.target.value;
 
-		if (url == '' && (!inputValue.startsWith("http://") || !inputValue.startsWith("https://"))) {
+		if (url == '' && !inputValue.startsWith("http://") && !inputValue.startsWith("https://")) {
 			inputValue = 'https://' + inputValue;
 		}
 
