@@ -27,7 +27,6 @@ link_repository = RepositoryMock()
 url_shortener_service = UrlShortenerService(link_repository)
 
 
-
 ###################################################################################
 @app.get("/")
 async def root():

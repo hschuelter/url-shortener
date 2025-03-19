@@ -19,7 +19,7 @@ class RepositoryMock(IRepository):
     def get_link(self, short_code: str) -> str:
         if short_code in self.data:
             return self.data[short_code]
-        return 'http://localhost:8000'
+        return 'https://encurta-ai.vercel.app/'
 
     def save_link(self, short_code: str, original_url: str) -> str:
         for key, val in self.data.items():
