@@ -9,9 +9,10 @@ from Data.URLRequest import URLRequest
 app = FastAPI()
 
 origins = [
-    "http://localhost",
+    "https://encurta-ai.vercel.app",
     "http://localhost:8080",
     "http://localhost:5173"
+
 ]
 
 app.add_middleware(
