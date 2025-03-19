@@ -53,8 +53,6 @@ function URLShortener() {
 			body: JSON.stringify(request)
 			});
 			const data = await response.json();
-			// console.log(data);
-			// console.log(data.short_url);
 			setShortUrl(data.short_url)
 		} catch (error) {
 			toast.error("Something went wrong");
