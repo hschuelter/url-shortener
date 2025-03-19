@@ -23,7 +23,7 @@ function URLShortener() {
 		}
 	}
 
-	const handleInputChange = (e) => {
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		let inputValue = e.target.value;
 
 		if (url == '' && (!inputValue.startsWith("http://") || !inputValue.startsWith("https://"))) {
@@ -88,8 +88,8 @@ function URLShortener() {
 			/>
 
 			<div className="flex">
-				<Button className="max-w-40 p-4 text-lg h-12" onClick={handleShorten} disabled={loading}>
-					{loading ? <Loader2 className="animate-spin text-xl" /> : "Get your link"}
+				<Button className="min-w-40 p-4 text-lg h-12" onClick={handleShorten} disabled={loading}>
+					{loading ? <Loader2 className="animate-spin h-12" /> : "Get your link"}
 				</Button>
 				{shortUrl && (
 					<div className="flex items-center justify-between p-2 ml-6 border rounded-lg h-12 min-w-40">
