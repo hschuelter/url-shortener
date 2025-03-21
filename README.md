@@ -56,7 +56,7 @@ The primary focus of this repository is to practice the develop the full life cy
      ```bash
      fastapi dev server.py 
      ```
-   - For the backend:
+   - For the frontend:
      ```bash
      npm run dev
      ```
