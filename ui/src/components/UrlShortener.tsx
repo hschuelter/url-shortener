@@ -35,7 +35,6 @@ function URLShortener() {
 
 	const handleShorten = async () => {
 		if (!isValidHttpUrl(url)) {
-			console.log('Erro: url', url);
 			return toast.error("Please enter a valid URL");
 		}
 		setLoading(true);
