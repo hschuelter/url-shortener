@@ -1,5 +1,7 @@
 class IRepository:
-    def __init__(self) -> None:
+    settings = {}
+
+    def __init__(self, settings) -> None:
         pass
 
     def get_all_links(self):

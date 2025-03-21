@@ -6,9 +6,11 @@ from Data.URLRequest import URLRequest
 
 class UrlShortenerService:
     repository = ''
+    settings = {}
 
-    def __init__(self, repository: IRepository) -> None:
+    def __init__(self, repository: IRepository, settings) -> None:
         self.repository = repository
+        self.settings = settings
 
     def handle_root(self) -> str:
         return {"message": "healthcheck successful!"}

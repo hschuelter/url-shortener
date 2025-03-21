@@ -9,9 +9,11 @@ class RepositoryMock(IRepository):
         'e': 'https://excalidraw.com/',
         'f': 'https://www.youtube.com/@Cogumelando'
     }
+    settings = {}
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, settings) -> None:
+        self.settings = settings
+        return
 
     def get_all_links(self):
         return self.data

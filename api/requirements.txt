@@ -1,6 +1,9 @@
 fastapi
 fastapi-cli
+psycopg2-binary
 pydantic
 pydantic_core
+pydantic-settings
+sqlalchemy
 urllib3
 uvicorn

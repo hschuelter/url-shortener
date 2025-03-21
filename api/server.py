@@ -1,17 +1,22 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
+import config
 from Repository.RepositoryMock import RepositoryMock
+from Repository.RepositoryPsql import RepositoryPsql
 from Services.UrlShortenerService import UrlShortenerService
 from Data.URLRequest import URLRequest
 
 app = FastAPI()
+settings = config.Settings()
 
 origins = [
-    "https://encurta-ai.vercel.app",
-    "http://localhost:8080",
-    "http://localhost:5173"
+    settings.frontend_url,
+    settings.alternate_url1,
+    settings.alternate_url2
 
 ]
 
@@ -23,8 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-link_repository = RepositoryMock()
-url_shortener_service = UrlShortenerService(link_repository)
+link_repository = RepositoryPsql(settings)
+url_shortener_service = UrlShortenerService(link_repository, settings)
 
 
 ###################################################################################
