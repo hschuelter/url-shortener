@@ -10,6 +10,7 @@ The primary focus of this repository is to practice the develop the full life cy
 
 - **Backend**: FastAPI.
 - **Frontend**: Tailwind CSS + Shadcn.
+- **Database**: PostgreSQL.
 - **Deployment**: Vercel and Koyeb.
 
 ## 📂 Repository Structure
