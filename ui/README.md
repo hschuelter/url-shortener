@@ -1,85 +1,54 @@
-# encurta.ai - an url shortener
+# React + TypeScript + Vite
 
-## 📚 Overview
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This repository contains the implementation of an url shortener prototype. It is currently available at https://encurta-ai.vercel.app/ 
+Currently, two official plugins are available:
 
-The primary focus of this repository is to practice the develop the full life cycle of a project, from planning, to development and, finally, to deployment. Also, it's an excuse to practice this tech stack.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🛠️ Tech Stack
+## Expanding the ESLint configuration
 
-- **Backend**: FastAPI.
-- **Frontend**: Tailwind CSS + Shadcn.
-- **Deployment**: Vercel and Koyeb.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 📂 Repository Structure
-
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
-├── api/                                # Backend implementation.
-│   ├── Data/                           # Classes for the JSON format received in the backend.
-│   ├── Repository/                     # Classes that interact with the database.
-│   ├── Services/                       # Classes that implement the requests behavior. 
-│   └── server.py                       # API configuration and requests handling.
-├── ui/                                 # Frontend implementation.
-└── README.md                           # Project documentation.
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
 ```
-
-## 🚀 Getting Started
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/hschuelter/url-shortener.git
-   cd url-shortener
-   ```
-
-2. **Setting up the environment**:
-   - **Set up the backend**:
-   
-   Install the requirements:
-    ```bash
-    cd api/
-    python -m venv .venv
-    source .venv/bin/activate
-    pip install requirements.txt
-   ```
-
-   - **Set up the frontend**:
-   
-    Install the requirements:
-    ```bash
-    cd ui/
-    npm install
-    ```
-
-3. **Running locally**:
-   - For the backend:
-     ```bash
-     fastapi dev server.py 
-     ```
-   - For the backend:
-     ```bash
-     npm run dev
-     ```
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to submit issues or pull requests to help improve the repository.
-
-1. Fork the repository.
-2. Create your feature branch:
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. Open a pull request.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
